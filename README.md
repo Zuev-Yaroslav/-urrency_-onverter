@@ -5,7 +5,9 @@
 PHP, NGINX, Laravel, PostgreSQl
  - В .env поменяйте `DB_PORT`, `DB_DATABASE`, `DB_PASSWORD`.
  - `docker-compose up -d`, чтобы поднять контейнеры
- - Прописать `composer update`
+ - `docker exec -it exchange_rates_app bash`
+ - `php artisan migrate --seed`
+ - `composer update`
  - `php artisan generate:key`
  - Используемый хост http://localhost:8876
  - Используемый домен ЦБ РФ https://www.cbr-xml-daily.ru
