@@ -2,7 +2,7 @@
 
 
 ## Инструкция
-PHP, NGINX, Laravel, PostgreSQl
+PHP, NGINX, Laravel, PostgreSQL
  - В .env поменяйте `DB_PORT`, `DB_DATABASE`, `DB_PASSWORD`.
  - `docker-compose up -d`, чтобы поднять контейнеры
  - `docker exec -it exchange_rates_app bash`
