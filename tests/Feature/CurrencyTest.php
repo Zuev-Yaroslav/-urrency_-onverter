@@ -82,7 +82,7 @@ class CurrencyTest extends TestCase
 
         $response = $this->withToken($token)
             ->get(self::PREFIX_API . '/currencies/exchange?char_code=EUR&total=24.345');
-
+//        $eur = $this->withToken($token)->get(self::PREFIX_API . '/currencies/EUR')->collect();
         $response->assertStatus(200);
     }
 }

@@ -31,6 +31,9 @@ class CurrencyController extends Controller
     }
     private function getExchangeResponse(float $result) : JsonResponse
     {
-        return response()->json(['result' => $result], 200);
+        return response()->json([
+            'result' => $result,
+            'toCurrency' => 'RUB'
+        ], 200);
     }
 }
