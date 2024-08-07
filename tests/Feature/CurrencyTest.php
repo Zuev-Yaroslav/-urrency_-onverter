@@ -79,10 +79,14 @@ class CurrencyTest extends TestCase
             'password' => Hash::make($data['password'])
         ]);
         $token = $this->login($data);
-
+        $total = 24.345;
         $response = $this->withToken($token)
-            ->get(self::PREFIX_API . '/currencies/exchange?char_code=EUR&total=24.345');
-//        $eur = $this->withToken($token)->get(self::PREFIX_API . '/currencies/EUR')->collect();
+            ->get(self::PREFIX_API . '/currencies/exchange?char_code=EUR&total='. $total);
+
         $response->assertStatus(200);
+
+        $eur = $this->withToken($token)->get(self::PREFIX_API . '/currencies/EUR')->collect();
+        $result = (float)number_format($eur['value'] / $eur['nominal'] * $total, '3', '.', '');
+        $response->assertJsonPath('result', $result);
     }
 }
