@@ -8,7 +8,8 @@ PHP, NGINX, Laravel, PostgreSQL
  - `docker exec -it exchange_rates_app bash`
  - `php artisan migrate --seed`
  - `composer update`
- - `php artisan generate:key`
- - Используемый хост http://localhost:8876
+ - `php artisan key:generate`
+ - `php artisan jwt:secret`
+ - Используемый текущий хост http://localhost:8876
  - Используемый домен ЦБ РФ https://www.cbr-xml-daily.ru.
 
