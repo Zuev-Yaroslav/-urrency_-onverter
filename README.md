@@ -10,5 +10,5 @@ PHP, NGINX, Laravel, PostgreSQl
  - `composer update`
  - `php artisan generate:key`
  - Используемый хост http://localhost:8876
- - Используемый домен ЦБ РФ https://www.cbr-xml-daily.ru
+ - Используемый домен ЦБ РФ https://www.cbr-xml-daily.ru.
 
