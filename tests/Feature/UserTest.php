@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -50,5 +51,28 @@ class UserTest extends TestCase
         $response = $this->login($data);
 
         $response->assertStatus(401);
+    }
+    public function test_register(): void
+    {
+        $data = [
+            'name' => 'user',
+            'email' => 'super_user@ru',
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ];
+        $response = $this->post(self::PREFIX_API . '/auth/register', $data);
+        $response->assertStatus(200);
+    }
+    public function test_register_fail(): void
+    {
+        $data = [
+            'name' => Str::random(300),
+            'email' => 'super_user@ru',
+            'password' => 'password',
+            'password_confirmation' => 'password'
+        ];
+        $response = $this->post(self::PREFIX_API . '/auth/register', $data);
+//        $this->assertEquals(true, isset($response['errors']));
+        $response->assertStatus(302);
     }
 }
